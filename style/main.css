@@ -4,6 +4,10 @@
   font-weight: bold;
 }
 
+.social {
+
+  background: white;
+}
 
 #content {
   border-radius: 200px;
@@ -18,7 +22,16 @@
 
 }
 
-
+#tweet-quote .fa.fa-twitter{
+float: left;
+    padding: 0px;
+    padding-top: 8px;
+    text-align: center;
+    font-size: 1.2em;
+    margin-right: 5px;
+    height: 30px;
+    width: 40px;
+  }
 
 
 
@@ -54,24 +67,8 @@ background-color: #bbbbbf;
 }
 
 
-.fa {
-display: inline;
 
 
-}
-
-
-i.fa.fa-quote-left {
-  display: inline;
-
-  margin-left : 20%;
-}
-
-i.fa.fa-quote-right {
-   display: inline;
-
-  margin-right: 80%;
-}
 
 button {
   height: 50px;

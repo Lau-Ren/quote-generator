@@ -3,6 +3,11 @@
 var HTMLquote = '<h1 id="quoteText"><i class="fa fa-quote-left" aria-hidden="true"></i>%data% <i class="fa fa-quote-right" aria-hidden="true"></i></h1><hr>';
 var HTMLauthor= '<span>%data%</span>';
 var HTMLpageColour= '<body style="background-color:%data%">'
+var HTMLtweet = '<a id="tweet-quote" title="Tweet" target="_blank" href="https://twitter.com/intent/tweet?text="%data%">Tweet</a>'
+
+
+
+
 
 var quotes = {
 	"quotes" : [{
@@ -58,16 +63,18 @@ var quotes = {
 
 
 var formattedQuote = HTMLquote.replace("%data%", quotes.quotes.words);
-
 var formattedAuthor = HTMLauthor.replace("%data%", quotes.quotes.author);
 var formattedBGColour =HTMLpageColour.replace("%data%", quotes.quotes.colour);
+
+
 
 $("#quote").prepend(formattedQuote);
 $("#author").prepend(formattedAuthor);
 $("body").prepend(formattedBGColour);
 
 
-	var randomNum
+
+var randomNum
 
 
 
@@ -80,6 +87,7 @@ $(document).ready(function() {
     changeQuote ()
  
   });
+  
 });
 
 var newBGColour 
@@ -91,17 +99,23 @@ function getRandomNumber(min, max) {
 	console.log(randomNum)
   return randomNum
 }
-
+ 
 function changeQuote (){
 	newBGColour = quotes.quotes[randomNum].colour || function(){};
 	$('body').addClass(newBGColour);
 	$('button').addClass(newBGColour);
 	var newQuote = quotes.quotes[randomNum].words || function(){};
 	$('#quote').html(newQuote); 
-
-	 var newAuthor = quotes.quotes[randomNum].author || function(){};
+	var newAuthor = quotes.quotes[randomNum].author || function(){};
 	$('#author').html(newAuthor); 
 
-	 
+	var formattedTweet = HTMLtweet.replace("%data%", quotes.quotes[randomNum].words)
+	$(".social").prepend(formattedTweet);
+	// var newTweet = HTMLtweet.replace("%data%", quotes.quotes[randomNum].words);
+	// $('#tweet-quote').text.html(newTweet);
+
+
+
+
 
 }
