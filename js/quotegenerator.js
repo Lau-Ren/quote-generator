@@ -3,7 +3,7 @@
 var HTMLquote = '<h1 id="quoteText"><i class="fa fa-quote-left" aria-hidden="true"></i>%data% <i class="fa fa-quote-right" aria-hidden="true"></i></h1><hr>';
 var HTMLauthor= '<span>%data%</span>';
 var HTMLpageColour= '<body style="background-color:%data%">'
-var HTMLtweet = '<a id="tweet-quote" title="Tweet" target="_blank">Tweet</a>'
+var HTMLtweet = '<a id="tweet-quote" title="Tweet" target="_blank"><i class="fa fa-twitter"></i></a>'
 
 
 
