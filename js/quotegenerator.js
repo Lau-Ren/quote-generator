@@ -3,7 +3,7 @@
 var HTMLquote = '<h1 id="quoteText"><i class="fa fa-quote-left" aria-hidden="true"></i>%data% <i class="fa fa-quote-right" aria-hidden="true"></i></h1><hr>';
 var HTMLauthor= '<span>%data%</span>';
 var HTMLpageColour= '<body style="background-color:%data%">'
-var HTMLtweet = '<a id="tweet-quote" title="Tweet" target="_blank" href="https://twitter.com/intent/tweet?text="%data%">Tweet</a>'
+var HTMLtweet = '<a id="tweet-quote" title="Tweet" target="_blank">Tweet</a>'
 
 
 
@@ -65,13 +65,14 @@ var quotes = {
 var formattedQuote = HTMLquote.replace("%data%", quotes.quotes.words);
 var formattedAuthor = HTMLauthor.replace("%data%", quotes.quotes.author);
 var formattedBGColour =HTMLpageColour.replace("%data%", quotes.quotes.colour);
+var formattedTweet = HTMLtweet.replace("%data%", 'https://twitter.com/intent/tweet?text="' + quotes.quotes.words + '" ' + quotes.quotes.author)
 
 
 
 $("#quote").prepend(formattedQuote);
 $("#author").prepend(formattedAuthor);
 $("body").prepend(formattedBGColour);
-
+$(".social").prepend(formattedTweet);
 
 
 var randomNum
@@ -109,13 +110,6 @@ function changeQuote (){
 	var newAuthor = quotes.quotes[randomNum].author || function(){};
 	$('#author').html(newAuthor); 
 
-	var formattedTweet = HTMLtweet.replace("%data%", quotes.quotes[randomNum].words)
-	$(".social").prepend(formattedTweet);
-	// var newTweet = HTMLtweet.replace("%data%", quotes.quotes[randomNum].words);
-	// $('#tweet-quote').text.html(newTweet);
-
-
-
-
-
+ 	document.getElementById('tweet-quote').href = 'https://twitter.com/intent/tweet?text="' + newQuote + '" ' + newAuthor
+	
 }
